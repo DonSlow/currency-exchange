@@ -8,9 +8,9 @@ function* fetchRates() {
   yield put({ type: LOAD_RATES.REQUEST });
   try {
     const responses = yield all([
-      call(axios.get, 'https://api.fixer.io/latest?base=EUR&symbols=USD,GBP'),
-      call(axios.get, 'https://api.fixer.io/latest?base=USD&symbols=EUR,GBP'),
-      call(axios.get, 'https://api.fixer.io/latest?base=GBP&symbols=USD,EUR')
+      call(axios.get, 'https://data.fixer.io/api/latest?access_key=06d04b9d61e6783bff6e1dcdcfa91d9e&base=EUR&symbols=USD,GBP'),
+      call(axios.get, 'https://data.fixer.io/api/latest?access_key=06d04b9d61e6783bff6e1dcdcfa91d9e&base=USD&symbols=EUR,GBP'),
+      call(axios.get, 'https://data.fixer.io/api/latest?access_key=06d04b9d61e6783bff6e1dcdcfa91d9e&base=GBP&symbols=USD,EUR')
     ]);
     const data = keyBy(responses.map(response => response.data), 'base');
     yield put({ type: LOAD_RATES.SUCCESS, payload: { data } });

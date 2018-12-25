@@ -1,7 +1,7 @@
 {
   "name": "currency-exchange",
   "version": "1.0.0",
-  "homepage" : "http://rip21.github.io/currency-exchange",
+  "homepage" : "http://DonSlow.github.io/currency-exchange",
   "scripts": {
     "start": "react-app-rewired start",
     "prebuild": "npm run stylecheck",
